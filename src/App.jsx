@@ -9,9 +9,11 @@ function App() {
 
   return (
     <div className="bg-yellow-500 p-16">
-      Hello
-      <Button variant="ghost">Button</Button>
-      <Button variant="ghost">Button Hello </Button>
+
+      
+     <main>
+
+     </main>
     </div>
   );
 }
