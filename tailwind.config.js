@@ -1,7 +1,10 @@
-// tailwind.config.js
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 export default {
+  content: [
+    "./index.html", // Vite entry point
+    "./src/**/*.{js,ts,jsx,tsx}", // All components/pages
+  ],
   theme: {
     extend: {
       colors: {
@@ -12,6 +15,7 @@ export default {
         backgroundDark: "#343a40",
         textPrimary: "#212529",
         textSecondary: "#495057",
+        midnight: "#05203c",
       },
       fontFamily: {
         sans: ["Inter", ...fontFamily.sans],

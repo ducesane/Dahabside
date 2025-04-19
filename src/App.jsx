@@ -13,12 +13,15 @@ import { Passenger } from "./pages/Passenger";
 import { PaymentFailed } from "./pages/PaymentFailed";
 import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
+import { Header } from "./components/Header";
+import { Footer } from "./components/Footer";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <div>
+      <Header />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -32,6 +35,7 @@ function App() {
           <Route path="signup" element={<SignUp />} />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
