@@ -2,7 +2,7 @@ import React from "react";
 
 export const SearchBar = () => {
   return (
-    <div className="max-w-full bg-[#0b253f]  h-[400px]">
+    <div className="max-w-full bg-[#05203c]  h-[400px] ">
       <div className=" px-24  ">
         {/* tabs */}
         <div className="flex gap-2">
@@ -50,11 +50,10 @@ export const SearchBar = () => {
 
           <section class="w-full mt-6  ">
             <div class="  mx-auto">
-
-              <h2 class="text-2xl font-semibold text-white mb-6">
+              <h2 class="text-2xl font-semibold text-white">
                 Top deals for you
               </h2>
-              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6">
+              <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mt-3">
                 <div class="bg-blue-50 p-4 rounded-lg shadow">
                   📍 London → Paris{" "}
                   <span class="text-gray-500 text-sm">from $39</span>
