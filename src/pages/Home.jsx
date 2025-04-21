@@ -1,5 +1,10 @@
 import React from "react";
+import { SearchBar } from "../components/SearchBar";
 
 export const Home = () => {
-  return <div>Hello From Home Page</div>;
+  return (
+    <div>
+      <SearchBar />
+    </div>
+  );
 };

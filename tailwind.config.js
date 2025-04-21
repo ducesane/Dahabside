@@ -8,14 +8,30 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: "#089219",
-        secondary: "#6c757d",
-        accent: "#28a745",
-        backgroundLight: "#f8f9fa",
-        backgroundDark: "#343a40",
-        textPrimary: "#212529",
-        textSecondary: "#495057",
-        midnight: "#05203c",
+        primary: {
+          DEFAULT: "#05203c", // Replaces old primary
+          light: "#0e2a47", // Section backgrounds
+          card: "#0b253f", // Card backgrounds
+          border: "#1c3a5a", // Border lines
+          muted: "#a3b9cc", // Muted text
+        },
+        accent: {
+          yellow: "#f4b400", // Attention
+          cyan: "#00bcd4", // Active elements
+          coral: "#ff6f61", // CTAs / Warnings
+        },
+        neutral: {
+          light: "#f8f9fa", // Light bg
+          dark: "#343a40", // Dark bg
+          textPrimary: "#ffffff",
+          textMuted: "#a3b9cc",
+        },
+        status: {
+          success: "#4caf50",
+          info: "#2196f3",
+          warning: "#ff9800",
+          error: "#f44336",
+        },
       },
       fontFamily: {
         sans: ["Inter", ...fontFamily.sans],
