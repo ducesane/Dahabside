@@ -1,0 +1,670 @@
+
+
+[
+    {
+        "id": 1,
+        "name": "Addis Ababa",
+        "code": "ADD",
+        "countryId": 68,
+        "countryName": "ETHIOPIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 2,
+        "name": "Aden",
+        "code": "ADE",
+        "countryId": 237,
+        "countryName": "YEMEN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 3,
+        "name": "Addado",
+        "code": "ADO",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 4,
+        "name": "Abu Dhabi",
+        "code": "AUH",
+        "countryId": 224,
+        "countryName": "UNITED ARAB EMIRATES",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 5,
+        "name": "Beledweyne",
+        "code": "BLW",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 6,
+        "name": "Abudwak",
+        "code": "ABW",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 7,
+        "name": "Baidoa",
+        "code": "BIB",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 8,
+        "name": "Cairo",
+        "code": "CAI",
+        "countryId": 63,
+        "countryName": "EGYPT",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 9,
+        "name": "Dhobley",
+        "code": "DLY",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 10,
+        "name": "Dhuusamarreeb ",
+        "code": "DSM",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 11,
+        "name": "Doolow",
+        "code": "DLW",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 12,
+        "name": "Dubai",
+        "code": "DXB",
+        "countryId": 224,
+        "countryName": "UNITED ARAB EMIRATES",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 13,
+        "name": "Guriel",
+        "code": "GRL",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 14,
+        "name": "Jeddah",
+        "code": "JED",
+        "countryId": 187,
+        "countryName": "SAUDI ARABIA",
+        "isActive": true,
+        "isAssigned": false
+    },
+    {
+        "id": 15,
+        "name": "Jabuti",
+        "code": "JIB",
+        "countryId": 59,
+        "countryName": "DJIBOUTI",
+        "isActive": true,
+        "isAssigned": false
+    },
+    {
+        "id": 16,
+        "name": "Jowhar",
+        "code": "JHR",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 17,
+        "name": "Kampala",
+        "code": "EBB",
+        "countryId": 222,
+        "countryName": "UGANDA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 18,
+        "name": "Khartoum",
+        "code": "KRT",
+        "countryId": 201,
+        "countryName": "SUDAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 19,
+        "name": "Mogadishu",
+        "code": "MGQ",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 20,
+        "name": "Nairobi",
+        "code": "NBO",
+        "countryId": 110,
+        "countryName": "KENYA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 21,
+        "name": "Garowe",
+        "code": "GGR",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 22,
+        "name": "Bosaso",
+        "code": "BSA",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 23,
+        "name": "Hargeisa",
+        "code": "HGA",
+        "countryId": 241,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 24,
+        "name": "Mombasa",
+        "code": "MBA",
+        "countryId": 110,
+        "countryName": "KENYA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 25,
+        "name": "Kismayo",
+        "code": "KMU",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 26,
+        "name": "Wajid",
+        "code": "WJD",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 27,
+        "name": "Luuq",
+        "code": "LUQ",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 28,
+        "name": "Xudur",
+        "code": "XDR",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 29,
+        "name": "Galkio",
+        "code": "GLK",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 30,
+        "name": "Buulo Burte",
+        "code": "BLB",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 31,
+        "name": "Madinah",
+        "code": "MED",
+        "countryId": 187,
+        "countryName": "SAUDI ARABIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 32,
+        "name": "Khunda",
+        "code": "KHU",
+        "countryId": 1,
+        "countryName": "AFGHANISTAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 33,
+        "name": "Kabul",
+        "code": "KBL",
+        "countryId": 1,
+        "countryName": "AFGHANISTAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 34,
+        "name": "Baydhabo",
+        "code": "BAI",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 35,
+        "name": "Hobyo",
+        "code": "Hby",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 38,
+        "name": "EL-BARDE",
+        "code": "ELB",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 39,
+        "name": "Haramoge",
+        "code": "HRM",
+        "countryId": 156,
+        "countryName": "NIGERIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 40,
+        "name": "Caabudwaaq",
+        "code": "CBD",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 41,
+        "name": "Bardere",
+        "code": "BRD",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 42,
+        "name": "Buuhoodle",
+        "code": "BUH",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 43,
+        "name": "El Wak",
+        "code": "ELK",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 44,
+        "name": "Afmadow",
+        "code": "AFM",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 45,
+        "name": "Boorama",
+        "code": "BRM",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 46,
+        "name": "Barawa",
+        "code": "BRO",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 47,
+        "name": "Barbera",
+        "code": "BBO",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 48,
+        "name": "Bu'aale",
+        "code": "BLE",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 49,
+        "name": "Diinsoor",
+        "code": "DNS",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 50,
+        "name": "Garbahaarreey",
+        "code": "BSY",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 51,
+        "name": "Burdhubo",
+        "code": "BDH",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 52,
+        "name": "Beledxaawo",
+        "code": "BLX",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 53,
+        "name": "Matabaan",
+        "code": "MTB",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 54,
+        "name": "Juba",
+        "code": "JUB",
+        "countryId": 201,
+        "countryName": "SUDAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 55,
+        "name": "Merca",
+        "code": "MER",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 56,
+        "name": "Wau",
+        "code": "WUU",
+        "countryId": 240,
+        "countryName": "SOUTH SUDAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 57,
+        "name": "Aweil",
+        "code": "AWL",
+        "countryId": 240,
+        "countryName": "SOUTH SUDAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 58,
+        "name": "Renk",
+        "code": "RNK",
+        "countryId": 240,
+        "countryName": "SOUTH SUDAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 59,
+        "name": "Malakal",
+        "code": "MAK",
+        "countryId": 240,
+        "countryName": "SOUTH SUDAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 60,
+        "name": "Rabkona",
+        "code": "RBK",
+        "countryId": 240,
+        "countryName": "SOUTH SUDAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 61,
+        "name": "Ajunthok",
+        "code": "AJN",
+        "countryId": 240,
+        "countryName": "SOUTH SUDAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 62,
+        "name": "Kuacjok",
+        "code": "KJK",
+        "countryId": 240,
+        "countryName": "SOUTH SUDAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 63,
+        "name": "Yida",
+        "code": "YDA",
+        "countryId": 240,
+        "countryName": "SOUTH SUDAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 64,
+        "name": "Rumbek",
+        "code": "RBX",
+        "countryId": 240,
+        "countryName": "SOUTH SUDAN",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 65,
+        "name": "Sharjah",
+        "code": "AESH",
+        "countryId": 224,
+        "countryName": "UNITED ARAB EMIRATES",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 66,
+        "name": "Ceerigaabo ",
+        "code": "ERA",
+        "countryId": 241,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 67,
+        "name": "Burao ",
+        "code": "BUO",
+        "countryId": 241,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 68,
+        "name": "Laascaanood ",
+        "code": "LAS",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 69,
+        "name": "Borama ",
+        "code": "BXX",
+        "countryId": 241,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 70,
+        "name": "Goldogob ",
+        "code": "GOB",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 71,
+        "name": "Caluula ",
+        "code": "ALU",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 72,
+        "name": "Dessie ",
+        "code": "DSE",
+        "countryId": 68,
+        "countryName": "ETHIOPIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 73,
+        "name": "BAXDO ",
+        "code": "BXD",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 74,
+        "name": "Yeed ",
+        "code": "YED",
+        "countryId": 196,
+        "countryName": "SOMALIA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 75,
+        "name": "Mandera ",
+        "code": "NDE",
+        "countryId": 110,
+        "countryName": "KENYA",
+        "isActive": true,
+        "isAssigned": true
+    },
+    {
+        "id": 2276,
+        "name": "Dire Dawa",
+        "code": "DIR",
+        "countryId": 68,
+        "countryName": "ETHIOPIA",
+        "isActive": true,
+        "isAssigned": true
+    }
+]
