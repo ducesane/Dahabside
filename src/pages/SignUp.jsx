@@ -9,7 +9,7 @@ export const SignUp = () => {
   const [password, setpassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [loading, setisLoading] = useState(false);
-  const [isSucces, setIsSuccess] = useState("");
+  const [isSucces, setIsSuccess] = useState(false);
   const [error, setError] = useState("");
 
   const HandleSubmit = async (e) => {
@@ -20,7 +20,7 @@ export const SignUp = () => {
     setError("");
 
     if (password !== confirmPassword) {
-      setError("password iyo cofirmpassword waa in aya is lahaadaan");
+      setError("Passwords do not match.");
       console.log(error);
       setisLoading(false);
       return;
@@ -28,13 +28,33 @@ export const SignUp = () => {
 
     try {
       await signup(email, fullname, username, password);
+      setIsSuccess(true);
+      console.log("cinwaanka waala sameyay");
     } catch (error) {
       setError("Signup failed: " + error.message);
     } finally {
       setisLoading(false);
     }
   };
-
+  if (isSucces) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
+        <div className="max-w-md w-full text-center">
+          <div className="bg-white rounded-lg shadow-md p-8">
+            <div className="text-green-500 text-5xl mb-4">✓</div>
+            <h2 className="text-2xl font-bold mb-2">Account Created!</h2>
+            <p className="text-gray-600 mb-4">
+              Your account has been created successfully. Please check your
+              email for verification.
+            </p>
+            <p className="text-gray-500 text-sm">
+              Redirecting to sign in page in a few seconds...
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="min-h-screen flex items-center justify-center bg-red-300 px-4">
       <div className="w-full max-w-[600px]  bg-white shadow p-8 rounded-md my-4">
