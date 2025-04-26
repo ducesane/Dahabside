@@ -56,7 +56,7 @@ export const SignUp = () => {
     );
   }
   return (
-    <div className="min-h-screen flex items-center justify-center bg-red-300 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-50 px-4">
       <div className="w-full max-w-[600px]  bg-white shadow p-8 rounded-md my-4">
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
           Create account

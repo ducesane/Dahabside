@@ -5,17 +5,17 @@ export const SignIn = () => {
 
   
   return (
-    <div className="max-h-screen flex">
+    <div className="max-h-screen flex bg-gray-50 items justify-center ">
       {/* Left Image Section */}
-      <div className="w-1/2 hidden md:block">
+      {/* <div className="w-1/2 hidden md:block">
         <img
           src=" https://images.unsplash.com/photo-1561105109-34a3ff1eee63?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
           className="object-cover w-full h-full"
           alt="sign up"
         />
-      </div>
+      </div> */}
       {/* Right Form Section */}
-      <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-white">
+      <div className="w-full md:w-1/2 flex items-center justify-center p-8 m-4 bg-white">
         <div className="w-full max-w-md space-y-6  ">
           <h2 className="text-3xl font-bold text-gray-800 ">Sign in</h2>
           <form className="space-y-4">
