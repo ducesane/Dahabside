@@ -14,6 +14,7 @@ export async function signup(email, fullname, username, password) {
 
   if (data?.user) {
     const { data: sessionData } = await supabase.auth.getSession();
+    console.log('session', sessionData)
 
     if (!sessionData?.session) {
       console.log(
@@ -22,7 +23,7 @@ export async function signup(email, fullname, username, password) {
       return data;
     }
     
-    const { data: user } = await supabase.auth.getUser();
+    const { data: {user} } = await supabase.auth.getUser();
     const {data: ProfileData, error: profileError} = await supabase
         .from("Users")
         .insert({
@@ -48,4 +49,14 @@ export async function signup(email, fullname, username, password) {
   
 
   return data;
+}
+
+
+export async function signIn(email, password){
+  let { data, error } = await supabase.auth.signInWithPassword({
+    email: email,
+    password: password,
+  });
+  console.log(data);
+  if (error) throw error;
 }
