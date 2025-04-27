@@ -22,7 +22,7 @@ export async function signup(email, fullname, username, password) {
       return data;
     }
     
-    const { data: user } = await supabase.auth.getUser();
+    const { data: {user} } = await supabase.auth.getUser();
     const {data: ProfileData, error: profileError} = await supabase
         .from("Users")
         .insert({
