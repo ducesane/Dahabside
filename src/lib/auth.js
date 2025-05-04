@@ -66,3 +66,18 @@ export async function signIn(email, password) {
 
   
 }
+
+//  Method waxa oo noo sheegaa in user-ka login dhahay iyo inkale
+
+export function onAuthChange(callback) {
+  const { data } = supabase.auth.onAuthStateChange((event, session) => {
+    callback(session?.user || null, event);
+  });
+  return data.subscription.unsubscribe;
+}
+
+//  Signout  current User
+
+export async function signout() {
+  await supabase.auth.signOut();
+}
