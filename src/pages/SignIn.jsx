@@ -1,6 +1,6 @@
 import { signIn } from "@/lib/auth";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export const SignIn = () => {
 
@@ -12,6 +12,8 @@ export const SignIn = () => {
       const [isSucces, setIsSuccess] = useState(false);
       const [error, setError] = useState("");
 
+      const nagivate = useNavigate();
+
       const HandleSubmit = async (e) => {
         e.preventDefault();
         console.log('submited', email, password)
@@ -21,6 +23,7 @@ export const SignIn = () => {
         try {
           await signIn(email, password) 
           setIsSuccess(true);
+          nagivate("/");
         console.log("loggin in success");
 
           
