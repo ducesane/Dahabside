@@ -15,28 +15,48 @@ import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
+import { AuthProvider } from "./context/AuthContext";
+import UnAuthenticatedRoutes from "./components/UnAuthenticatedRoutes";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <div className=" ">
-      <Header />
-      <main className="">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="admin" element={<Admin />} />
-          <Route path="booking" element={<Booking />} />
-          <Route path="booking/:booking-id" element={<Booking />} />
-          <Route path="payment" element={<Payment />} />
-          <Route path="passenger" element={<Passenger />} />
-          <Route path="payment-failed" element={<PaymentFailed />} />
-          <Route path="signin" element={<SignIn />} />
-          <Route path="signup" element={<SignUp />} />
-        </Routes>
-      </main>
-      <Footer />
-    </div>
+    <AuthProvider>
+      <div className=" ">
+        <Header />
+        <main className="">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="admin" element={<Admin />} />
+            <Route path="booking" element={<Booking />} />
+            <Route path="booking/:booking-id" element={<Booking />} />
+            <Route path="payment" element={<Payment />} />
+            <Route path="passenger" element={<Passenger />} />
+            <Route path="payment-failed" element={<PaymentFailed />} />
+
+            {/* Un Authenticates routes (redirect  to home if logged in ) */}
+            <Route
+              path="/signin"
+              element={
+                <UnAuthenticatedRoutes>
+                  <SignIn />
+                </UnAuthenticatedRoutes>
+              }
+            />
+            <Route
+              path="/signup"
+              element={
+                <UnAuthenticatedRoutes>
+                  <SignUp />
+                </UnAuthenticatedRoutes>
+              }
+            />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </AuthProvider>
   );
 }
 
