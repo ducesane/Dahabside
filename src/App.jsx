@@ -18,6 +18,7 @@ import { Footer } from "./components/Footer";
 import { AuthProvider } from "./context/AuthContext";
 import UnAuthenticatedRoutes from "./components/UnAuthenticatedRoutes";
 import { AddFlights } from "./pages/AddFlights";
+import { FlightSearchAndEdit } from "./pages/FlightSearchAndEdit";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -36,6 +37,10 @@ function App() {
             <Route path="passenger" element={<Passenger />} />
             <Route path="payment-failed" element={<PaymentFailed />} />
             <Route path="addflights" element={<AddFlights />} />
+            <Route
+              path="FlightSearchAndEdit"
+              element={<FlightSearchAndEdit />}
+            />
 
             {/* Un Authenticates routes (redirect  to home if logged in ) */}
             <Route

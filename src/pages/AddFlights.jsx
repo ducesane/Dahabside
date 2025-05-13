@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-
 import supabase from "../lib/supabase";
 
 export const AddFlights = () => {
@@ -11,6 +10,7 @@ export const AddFlights = () => {
     to_city_id: "",
     days: [],
     direction: "outbound",
+    price: "",
   });
 
   const weekDays = [
@@ -52,9 +52,25 @@ export const AddFlights = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const { airplane_id, from_city_id, to_city_id, price } = form;
+
+    // Validation
+    if (!airplane_id || !from_city_id || !to_city_id) {
+      alert("✋ Please select an airline and both cities.");
+      return;
+    }
+
+    if (!price || isNaN(price) || Number(price) <= 0) {
+      alert("✋ Please enter a valid positive price.");
+      return;
+    }
+
     const { error } = await supabase.from("flights").insert([form]);
+
     if (error) {
-      alert("Error: " + error.message);
+      alert("❌ Error: " + error.message);
+      console.error("Supabase error:", error);
     } else {
       alert("✅ Flight added successfully");
       setForm({
@@ -63,6 +79,7 @@ export const AddFlights = () => {
         to_city_id: "",
         days: [],
         direction: "outbound",
+        price: "",
       });
     }
   };
@@ -133,7 +150,19 @@ export const AddFlights = () => {
           </select>
         </div>
 
-        {/* Days of Week */}
+        {/* Price */}
+        <div>
+          <label className="block text-gray-700 mb-1 font-medium">Price</label>
+          <input
+            type="number"
+            name="price"
+            value={form.price}
+            onChange={handleChange}
+            className="w-full border border-gray-300 p-2 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+          />
+        </div>
+
+        {/* Days */}
         <div>
           <label className="block text-gray-700 mb-1 font-medium">Days</label>
           <div className="grid grid-cols-2 gap-2">
