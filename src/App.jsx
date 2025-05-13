@@ -25,9 +25,9 @@ function App() {
 
   return (
     <AuthProvider>
-      <div className=" ">
+      <div className="min-h-screen flex flex-col ">
         <Header />
-        <main className="">
+        <main className="flex-grow">
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="admin" element={<Admin />} />
