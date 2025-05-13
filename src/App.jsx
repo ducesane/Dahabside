@@ -17,6 +17,7 @@ import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { AuthProvider } from "./context/AuthContext";
 import UnAuthenticatedRoutes from "./components/UnAuthenticatedRoutes";
+import { AddFlights } from "./pages/AddFlights";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -34,6 +35,7 @@ function App() {
             <Route path="payment" element={<Payment />} />
             <Route path="passenger" element={<Passenger />} />
             <Route path="payment-failed" element={<PaymentFailed />} />
+            <Route path="addflights" element={<AddFlights />} />
 
             {/* Un Authenticates routes (redirect  to home if logged in ) */}
             <Route
