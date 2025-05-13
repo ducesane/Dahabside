@@ -5,6 +5,7 @@ export async function signup(email, fullname, username, password) {
   let { data, error } = await supabase.auth.signUp({
     email,
     password,
+    
   });
 
   if (error) {
