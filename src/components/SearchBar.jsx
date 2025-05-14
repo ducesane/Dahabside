@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import cities from "../cities.json";
+import { useNavigate } from "react-router-dom";
 
 export const SearchBar = () => {
   const [fromInput, setFromInput] = useState("");
@@ -7,9 +8,17 @@ export const SearchBar = () => {
   const [fromSuggestion, setFromSuggestion] = useState([]);
   const [toSuggesstion, setToSuggestion] = useState([]);
 
+  const navigate = useNavigate();
   const handleSubmmit = (e) => {
     e.preventDefault();
     console.log(fromInput, toInput);
+    if (fromInput && toInput) {
+      navigate(
+        `/search-results?from=${encodeURIComponent(
+          fromInput
+        )}&to=${encodeURIComponent(toInput)}`
+      );
+    }
   };
 
   const handleChange = (value, setInput, setSugesstion) => {

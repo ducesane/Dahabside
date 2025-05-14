@@ -19,6 +19,8 @@ import { AuthProvider } from "./context/AuthContext";
 import UnAuthenticatedRoutes from "./components/UnAuthenticatedRoutes";
 import { AddFlights } from "./pages/AddFlights";
 import { FlightSearchAndEdit } from "./pages/FlightSearchAndEdit";
+import { SearchResults } from "./pages/SearchResults";
+import { AdminLayout } from "./pages/AdminLayout";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -37,6 +39,9 @@ function App() {
             <Route path="passenger" element={<Passenger />} />
             <Route path="payment-failed" element={<PaymentFailed />} />
             <Route path="addflights" element={<AddFlights />} />
+            <Route path="searchresults" element={<SearchResults />} />
+            <Route path="adminlayout" element={<AdminLayout />} />
+
             <Route
               path="FlightSearchAndEdit"
               element={<FlightSearchAndEdit />}
