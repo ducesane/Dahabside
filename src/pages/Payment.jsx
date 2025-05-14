@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams, useNavigate } from "react-router-dom";
 import supabase from "../lib/supabase";
 
 export const Payment = () => {
   const [searchParams] = useSearchParams();
   const flightId = searchParams.get("flight");
+  const selectedDay = searchParams.get("day");
+  const selectedDate = searchParams.get("date");
+
   const [flight, setFlight] = useState(null);
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
   const navigate = useNavigate();
@@ -13,19 +16,16 @@ export const Payment = () => {
     const fetchFlight = async () => {
       const { data, error } = await supabase
         .from("flights")
-        .select(
-          `
+        .select(`
           *,
-          airplanes ( name ),
+          airplanes ( name, image_url ),
           from_city:cities!flights_from_city_id_fkey ( name, code ),
           to_city:cities!flights_to_city_id_fkey ( name, code )
-        `
-        )
+        `)
         .eq("id", flightId)
         .single();
 
       if (!error) setFlight(data);
-      else console.error("Error loading flight:", error.message);
     };
 
     if (flightId) fetchFlight();
@@ -46,6 +46,9 @@ export const Payment = () => {
       passenger_name: form.name,
       email: form.email,
       phone: form.phone,
+      flight_day: selectedDay,
+      flight_date: selectedDate,
+      status: "confirmed",
     });
 
     if (error) {
@@ -56,8 +59,7 @@ export const Payment = () => {
     }
   };
 
-  if (!flight)
-    return <p className="text-center mt-10">Loading payment info...</p>;
+  if (!flight) return <p className="text-center mt-10">Loading payment info...</p>;
 
   return (
     <div className="max-w-3xl mx-auto mt-10 bg-white p-6 shadow rounded">
@@ -68,6 +70,14 @@ export const Payment = () => {
         <p>
           {flight.from_city.name} ({flight.from_city.code}) →{" "}
           {flight.to_city.name} ({flight.to_city.code})
+        </p>
+        <p className="text-sm text-gray-600 mt-2">
+          📅 Day: <strong>{selectedDay}</strong>
+          <br />
+          🗓️ Date: <strong>{selectedDate}</strong>
+          <br />
+          🔁 Direction: {flight.direction}
+          {flight.duration && <><br />⏱️ Duration: {flight.duration} min</>}
         </p>
         <p className="text-blue-600 font-bold text-lg mt-2">
           Total: ${flight.price}

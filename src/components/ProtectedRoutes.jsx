@@ -1,9 +1,10 @@
-import { Navigate } from "react-router";
-import { useAuth } from "../Context/AuthContext";
-export const ProtectedRoutes = ({ children, redirectTo = "/signin" }) => {
-  console.log("hello from Protectd page");
+// src/components/ProtectedRoutes.jsx
+import { Navigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext"; // adjust if your path is different
 
+export const ProtectedRoutes = ({ children, redirectTo = "/signin" }) => {
   const { isloading, isLoggedIn } = useAuth();
+
   if (isloading) {
     return (
       <div className="min-h-screen flex items-center justify-center">
@@ -12,6 +13,7 @@ export const ProtectedRoutes = ({ children, redirectTo = "/signin" }) => {
     );
   }
 
+  // Prevent back navigation by replacing the route
   if (!isLoggedIn) {
     return <Navigate to={redirectTo} replace />;
   }

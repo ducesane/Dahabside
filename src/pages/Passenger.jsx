@@ -8,19 +8,17 @@ export const Passenger = () => {
     const fetchLatestBooking = async () => {
       const { data, error } = await supabase
         .from("bookings")
-        .select(
-          `
+        .select(`
           *,
           flights (
             price,
-            days,
             direction,
+            duration,
             airplanes ( name ),
             from_city:cities!flights_from_city_id_fkey ( name, code ),
             to_city:cities!flights_to_city_id_fkey ( name, code )
           )
-        `
-        )
+        `)
         .order("created_at", { ascending: false })
         .limit(1)
         .single();
@@ -31,8 +29,7 @@ export const Passenger = () => {
     fetchLatestBooking();
   }, []);
 
-  if (!latestBooking)
-    return <p className="text-center mt-10">Loading confirmation...</p>;
+  if (!latestBooking) return <p className="text-center mt-10">Loading confirmation...</p>;
 
   const flight = latestBooking.flights;
 
@@ -41,8 +38,7 @@ export const Passenger = () => {
       <h2 className="text-2xl font-bold mb-4">Booking Confirmed ✅</h2>
 
       <p className="mb-2">
-        Thank you{" "}
-        <span className="font-semibold">{latestBooking.passenger_name}</span>!
+        Thank you <span className="font-semibold">{latestBooking.passenger_name}</span>!
       </p>
 
       <div className="space-y-2 text-sm text-gray-700">
@@ -51,21 +47,16 @@ export const Passenger = () => {
 
         <hr className="my-3" />
 
-        <p>
-          ✈️ Airline: <strong>{flight.airplanes.name}</strong>
-        </p>
-        <p>
-          📍 {flight.from_city.name} ({flight.from_city.code}) →
-          {flight.to_city.name} ({flight.to_city.code})
-        </p>
-        <p>📅 Operating Days: {flight.days.join(", ")}</p>
+        <p>✈️ Airline: <strong>{flight.airplanes.name}</strong></p>
+        <p>📍 {flight.from_city.name} → {flight.to_city.name}</p>
         <p>🔁 Direction: {flight.direction}</p>
-        <p>💸 Paid: ${flight.price}</p>
+        <p>📅 Day: {latestBooking.flight_day}</p>
+        <p>🗓️ Date: {latestBooking.flight_date}</p>
+        {flight.duration && <p>⏱️ Duration: {flight.duration} min</p>}
+        <p className="text-blue-600 font-bold mt-2">💵 Paid: ${flight.price}</p>
       </div>
 
-      <div className="mt-6 text-green-600 font-semibold">
-        You’ll receive your ticket via email or SMS shortly.
-      </div>
+      <p className="mt-4 text-green-600 font-semibold">Your ticket will be sent shortly via email or SMS.</p>
     </div>
   );
 };

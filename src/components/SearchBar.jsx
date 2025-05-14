@@ -14,7 +14,7 @@ export const SearchBar = () => {
     console.log(fromInput, toInput);
     if (fromInput && toInput) {
       navigate(
-        `/search-results?from=${encodeURIComponent(
+        `/searchresults?from=${encodeURIComponent(
           fromInput
         )}&to=${encodeURIComponent(toInput)}`
       );
