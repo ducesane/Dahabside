@@ -85,7 +85,7 @@ export const AddFlights = () => {
   };
 
   return (
-    <div className="p-6 max-w-xl mx-auto bg-white shadow-lg rounded-lg mt-10 border">
+    <div className="p-6 max-w-4xl mx-auto bg-white shadow-lg rounded-lg mt-10 border">
       <h2 className="text-2xl font-semibold text-gray-800 mb-6">
         Add New Flight
       </h2>
@@ -165,7 +165,7 @@ export const AddFlights = () => {
         {/* Days */}
         <div>
           <label className="block text-gray-700 mb-1 font-medium">Days</label>
-          <div className="grid grid-cols-2 gap-2">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-2">
             {weekDays.map((day) => (
               <label key={day} className="flex items-center gap-2">
                 <input

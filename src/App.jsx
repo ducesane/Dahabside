@@ -16,8 +16,8 @@ import { SignUp } from "./pages/SignUp";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
 import { AuthProvider } from "./context/AuthContext";
-import ProtectedRoutes from "./components/UnAuthenticatedRoutes";
-import UnAuthenticatedRoutes from "./components/UnAuthenticatedRoutes";
+import { ProtectedRoutes } from "./components/ProtectedRoutes";
+import { UnAuthenticatedRoutes } from "./components/UnAuthenticatedRoutes";
 
 import { AddFlights } from "./pages/AddFlights";
 import { FlightSearchAndEdit } from "./pages/FlightSearchAndEdit";
@@ -41,24 +41,26 @@ function App() {
             <Route path="searchresults" element={<SearchResults />} />
             <Route path="booking/:booking-id" element={<Booking />} />
             <Route path="booking" element={<Booking />} />
-            {/* <Route path="booking/:booking-id" element={<Booking />} /> */}
-
-
 
             {/* Auth-protected layout with nested admin pages */}
-            <Route path="adminlayout" element={<AdminLayout />}>
-              <Route index element={<Admin />} /> {/* default: /adminlayout */}
-              <Route path="addflights" element={<AddFlights />} />
-              {/* <Route path="booking" element={<Booking />} /> */}
-              <Route path="payment-failed" element={<PaymentFailed />} />
-              <Route path="flights" element={<Flights />} />
-              <Route path="FlightSearchAndEdit" element={<FlightSearchAndEdit />} />
-              {/* Optional: fallback or redirect */}
-              <Route path="*" element={
+            <Route
+              path="*"
+              element={
                 <ProtectedRoutes>
                   <AdminLayout />
                 </ProtectedRoutes>
-              } />
+              }
+            />
+            <Route path="adminlayout" element={<AdminLayout />}>
+              <Route index element={<Admin />} /> {/* default: /adminlayout */}
+              <Route path="addflights" element={<AddFlights />} />
+              <Route path="payment-failed" element={<PaymentFailed />} />
+              <Route path="flights" element={<Flights />} />
+              <Route
+                path="FlightSearchAndEdit"
+                element={<FlightSearchAndEdit />}
+              />
+              {/* Optional: fallback or redirect */}
             </Route>
 
             {/* Auth-restricted routes (sign in/up) */}

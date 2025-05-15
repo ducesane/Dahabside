@@ -3,13 +3,14 @@ import { Button } from "./ui/button";
 import { FaUser } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
 import { useAuth } from "@/context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 // bg color #05203c
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const { user, isLoggedIn, logOut, profile } = useAuth();
+  const navigate = useNavigate();
   console.log("commeeting from header", isLoggedIn, user);
   return (
     <div className="max-w-full bg-[#05203c] ">
@@ -17,7 +18,12 @@ export const Header = () => {
         <nav className="w-full flex  items-center justify-between">
           {/* nav left */}
           <div className="bg-[#05203c]">
-            <h1 className="text-white text-3xl font-semibold">Dahabside</h1>
+            <h1
+              className="text-white text-3xl font-semibold"
+              onClick={() => navigate("/")}
+            >
+              Dahabside
+            </h1>
           </div>
 
           <div className="  flex items-center space-x-4 ">
@@ -55,10 +61,10 @@ export const Header = () => {
                     >
                       <div className=""> </div>
                       <Link
-                        to={"/profile"}
+                        to={"/adminlayout"}
                         className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
                       >
-                        Your Profile
+                        Dashboard
                       </Link>
 
                       <Link

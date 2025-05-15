@@ -1,7 +1,7 @@
 import { Navigate } from "react-router";
 import { useAuth } from "../Context/AuthContext";
 
-export default function UnAuthenticatedRoutes({ children, redirectTo = "/" }) {
+export function UnAuthenticatedRoutes({ children, redirectTo = "/" }) {
   const { isloading, isLoggedIn } = useAuth();
 
   if (isloading) {

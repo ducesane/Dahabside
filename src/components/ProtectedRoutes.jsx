@@ -4,7 +4,7 @@ import { useAuth } from "../context/AuthContext"; // adjust if your path is diff
 
 export const ProtectedRoutes = ({ children, redirectTo = "/signin" }) => {
   const { isloading, isLoggedIn } = useAuth();
-
+ 
   if (isloading) {
     return (
       <div className="min-h-screen flex items-center justify-center">

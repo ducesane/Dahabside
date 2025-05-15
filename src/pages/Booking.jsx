@@ -15,12 +15,14 @@ export const Booking = () => {
     const fetchFlight = async () => {
       const { data, error } = await supabase
         .from("flights")
-        .select(`
+        .select(
+          `
           *,
           airplanes ( name, image_url ),
           from_city:cities!flights_from_city_id_fkey ( name, code ),
           to_city:cities!flights_to_city_id_fkey ( name, code )
-        `)
+        `
+        )
         .eq("id", flightId)
         .single();
 
@@ -31,10 +33,13 @@ export const Booking = () => {
   }, [flightId]);
 
   const handleContinue = () => {
-    navigate(`/payment?flight=${flightId}&day=${selectedDay}&date=${selectedDate}`);
+    navigate(
+      `/payment?flight=${flightId}&day=${selectedDay}&date=${selectedDate}`
+    );
   };
 
-  if (!flight) return <p className="text-center mt-10">Loading flight details...</p>;
+  if (!flight)
+    return <p className="text-center mt-10">Loading flight details...</p>;
 
   return (
     <div className="max-w-3xl mx-auto mt-10 bg-white p-6 shadow rounded">
@@ -44,10 +49,10 @@ export const Booking = () => {
         <img
           src={flight.airplanes?.image_url}
           alt={flight.airplanes?.name}
-          className="w-24 h-24 object-contain border rounded"
+          className="w-24 h-24 object-contain border rounded mx-auto sm:mx-0"
         />
 
-        <div>
+        <div className="sm:w-3/4">
           <p className="text-lg font-semibold">{flight.airplanes?.name}</p>
           <p>
             {flight.from_city.name} ({flight.from_city.code}) →{" "}
@@ -55,8 +60,12 @@ export const Booking = () => {
           </p>
 
           <div className="mt-2 space-y-1 text-sm text-gray-600">
-            <p>📅 Day: <strong>{selectedDay}</strong></p>
-            <p>🗓️ Date: <strong>{selectedDate}</strong></p>
+            <p>
+              📅 Day: <strong>{selectedDay}</strong>
+            </p>
+            <p>
+              🗓️ Date: <strong>{selectedDate}</strong>
+            </p>
             <p>🔁 Direction: {flight.direction}</p>
             {flight.duration && <p>⏱️ Duration: {flight.duration} minutes</p>}
           </div>
@@ -69,7 +78,7 @@ export const Booking = () => {
 
       <button
         onClick={handleContinue}
-        className="mt-6 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded"
+        className="mt-6 bg-green-600 hover:bg-green-700 text-white px-6 py-2 rounded w-full sm:w-auto"
       >
         Continue to Payment
       </button>

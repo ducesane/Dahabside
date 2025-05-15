@@ -3,39 +3,34 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 
 export const SignIn = () => {
+  const [email, setemail] = useState("");
 
-      const [email, setemail] = useState("");
-       
-     const [password, setpassword] = useState("");
-     
-      const [loading, setisLoading] = useState(false);
-      const [isSucces, setIsSuccess] = useState(false);
-      const [error, setError] = useState("");
+  const [password, setpassword] = useState("");
 
-      const nagivate = useNavigate();
+  const [loading, setisLoading] = useState(false);
+  const [isSucces, setIsSuccess] = useState(false);
+  const [error, setError] = useState("");
 
-      const HandleSubmit = async (e) => {
-        e.preventDefault();
-        console.log('submited', email, password)
-        setisLoading(true)
-        setError("");
+  const nagivate = useNavigate();
 
-        try {
-          await signIn(email, password) 
-          setIsSuccess(true);
-          nagivate("/");
-        console.log("loggin in success");
+  const HandleSubmit = async (e) => {
+    e.preventDefault();
+    console.log("submited", email, password);
+    setisLoading(true);
+    setError("");
 
-          
-        } catch (error) {
-          setError('sign in failed', error.message)
-          
-        }finally{
-          setisLoading(false);
-        }
-        
-      }
-  
+    try {
+      await signIn(email, password);
+      setIsSuccess(true);
+      nagivate("/");
+      console.log("loggin in success");
+    } catch (error) {
+      setError("sign in failed", error.message);
+    } finally {
+      setisLoading(false);
+    }
+  };
+
   return (
     <div className="max-h-screen flex bg-gray-50 items justify-center ">
       {/* Left Image Section */}
@@ -60,10 +55,11 @@ export const SignIn = () => {
               </label>
               <input
                 type="email"
-                placeholder="User name"
+                placeholder="email"
                 className="mt-1 w-full py-2 px-4 border rounded-md focus:outlin-none focus:ring-2 focus:ring-blue-500 "
                 value={email}
                 onChange={(e) => setemail(e.target.value)}
+                autoComplete="email"
               />
             </div>
             <div>
@@ -79,15 +75,14 @@ export const SignIn = () => {
                 className="mt-1 w-full py-2 px-4 border rounded-md focus:outlin-none focus:ring-2 focus:ring-blue-500 "
                 value={password}
                 onChange={(e) => setpassword(e.target.value)}
+                autoComplete="current-password"
               />
             </div>
             <button
               type="submit"
               className="w-full bg-blue-600 text-white py-2 rounded-md hover:bg-blue-700 transition duration-200"
             >
-              {
-                loading ? 'sigining...' : 'signin'
-              }
+              {loading ? "sigining..." : "signin"}
             </button>
           </form>
           <p className="text-sm text-gray-500 text-center">

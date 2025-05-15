@@ -88,6 +88,7 @@ export const SignUp = () => {
               className="mt-1 w-full py-2 px-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
+              autoComplete="username"
             />
           </div>
 
@@ -101,6 +102,7 @@ export const SignUp = () => {
               placeholder="Email"
               className="mt-1 w-full py-2 px-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={email}
+              autoComplete="email"
               onChange={(e) => setemail(e.target.value)}
             />
           </div>
@@ -116,6 +118,7 @@ export const SignUp = () => {
               className="mt-1 w-full py-2 px-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={password}
               onChange={(e) => setpassword(e.target.value)}
+              autoComplete="password"
             />
           </div>
 
@@ -126,6 +129,7 @@ export const SignUp = () => {
             </label>
             <input
               type="password"
+              autoComplete="password"
               placeholder="*************"
               className="mt-1 w-full py-2 px-4 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
               value={confirmPassword}
