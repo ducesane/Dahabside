@@ -43,9 +43,11 @@ export const Admin = () => {
 
   const filtered = bookings.filter((b) => {
     const matchDate = selectedDate
+    console.log(matchDate)
       ? b.flight_date &&
         new Date(b.flight_date).toISOString().split("T")[0] ===
           selectedDate.toISOString().split("T")[0]
+           
       : true;
 
     const matchSearch = searchTerm
@@ -66,7 +68,7 @@ export const Admin = () => {
   });
 
   const grouped = filtered.reduce((acc, booking) => {
-    console.log(" from admin", filtered[0]);
+    
     const key =
       groupBy === "route"
         ? `${booking.flights?.from_city?.name} → ${booking.flights?.to_city?.name}`

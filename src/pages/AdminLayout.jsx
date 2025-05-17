@@ -51,6 +51,15 @@ export const AdminLayout = () => {
             >
               All Flights
             </Link>
+
+             <Link
+              to="/adminlayout/FlightSearchAndEdit"
+              className={`block px-3 py-2 rounded hover:bg-gray-700 ${
+                isActive("FlightSearchAndEdit") && "bg-gray-800"
+              }`}
+            >
+             FlightSearch And Edit
+            </Link>
           </nav>
         </aside>
 

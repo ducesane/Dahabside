@@ -94,7 +94,7 @@ export const SearchResults = () => {
   let filtered = [...flights];
 
   // 1. Filter by price
-  if (priceFilter > 0) {
+  if (priceFilter => 0) {
     filtered = filtered.filter((f) => f.price <= priceFilter);
   }
 
