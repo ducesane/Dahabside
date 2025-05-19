@@ -21,7 +21,7 @@ export const AdminLayout = () => {
         <aside
           className={`${
             isSidebarOpen ? "block" : "hidden"
-          } lg:block w-64 bg-gray-900 text-white p-6 space-y-4 transition-all duration-300`}
+          }  lg:block w-64 bg-gray-900 text-white p-6 space-y-4 transition-all duration-300`}
         >
           <h2 className="text-xl font-bold mb-4 bg-red">Admin Panel</h2>
           <nav className="space-y-2">
@@ -70,10 +70,10 @@ export const AdminLayout = () => {
 
         {/* Mobile Sidebar Toggle Button */}
         <button
-          className="lg:hidden p-4 text-white bg-gray-900 fixed top-4 left-4 z-50"
+          className="lg:hidden p-1 text-white bg-gray-900 fixed top-16 left-0 z-50"
           onClick={() => setIsSidebarOpen(!isSidebarOpen)}
         >
-          <span className="text-xl">☰</span>
+          <span className="text-xl p-2 ">☰</span>
         </button>
       </div>
     </ProtectedRoutes>
