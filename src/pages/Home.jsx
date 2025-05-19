@@ -1,6 +1,6 @@
 import React from "react";
 import { SearchBar } from "../components/SearchBar";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/Context/AuthContext";
 
 export const Home = () => {
   const { user } = useAuth;

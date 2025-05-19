@@ -1,10 +1,10 @@
 // src/components/ProtectedRoutes.jsx
 import { Navigate } from "react-router-dom";
-import { useAuth } from "../context/AuthContext"; // adjust if your path is different
+import { useAuth } from "../Context/AuthContext"; // adjust if your path is different
 
 export const ProtectedRoutes = ({ children, redirectTo = "/signin" }) => {
   const { isloading, isLoggedIn } = useAuth();
- 
+
   if (isloading) {
     return (
       <div className="min-h-screen flex items-center justify-center">

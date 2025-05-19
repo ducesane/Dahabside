@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button } from "./ui/button";
 import { FaUser } from "react-icons/fa";
 import { IoMdMenu } from "react-icons/io";
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/Context/AuthContext";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 
 // bg color #05203c

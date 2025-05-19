@@ -1,4 +1,4 @@
-import { useAuth } from "@/context/AuthContext";
+import { useAuth } from "@/Context/AuthContext";
 import { useEffect, useState } from "react";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import { ProtectedRoutes } from "@/components/ProtectedRoutes"; // Import ProtectedRoutes
@@ -52,13 +52,13 @@ export const AdminLayout = () => {
               All Flights
             </Link>
 
-             <Link
+            <Link
               to="/adminlayout/FlightSearchAndEdit"
               className={`block px-3 py-2 rounded hover:bg-gray-700 ${
                 isActive("FlightSearchAndEdit") && "bg-gray-800"
               }`}
             >
-             FlightSearch And Edit
+              FlightSearch And Edit
             </Link>
           </nav>
         </aside>
