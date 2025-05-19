@@ -22,7 +22,7 @@ export const SignIn = () => {
     try {
       await signIn(email, password);
       setIsSuccess(true);
-      nagivate("/");
+      nagivate("/adminlayout");
       console.log("loggin in success");
     } catch (error) {
       setError("sign in failed", error.message);

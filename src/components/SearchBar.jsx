@@ -20,7 +20,9 @@ export const SearchBar = () => {
       );
     }
   };
-
+  const handleDealClick = (from, to) => {
+    navigate(`/searchresults?from=${from}&to=${to}`);
+  };
   const handleChange = (value, setInput, setSugesstion) => {
     setInput(value);
     if (value.length === 0) {
@@ -40,7 +42,7 @@ export const SearchBar = () => {
     setSuggestion([]);
   };
   return (
-    <div className="max-w-full bg-[#05203c]  h-[400px] ">
+    <div className="max-w-full bg-[#05203c]  ">
       <div className=" px-24  ">
         {/* tabs */}
         <div className="flex gap-2">
@@ -142,23 +144,34 @@ export const SearchBar = () => {
             </form>
           </div>
 
-          <section className="w-full mt-6  ">
-            <div className="  mx-auto">
+          <section className="w-full mt-6 py-6">
+            <div className="mx-auto">
               <h2 className="text-2xl font-semibold text-white">
                 Top deals for you
               </h2>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 gap-6 mt-3">
-                <div className="bg-blue-50 p-4 rounded-lg shadow">
-                  📍 Mogadisu → Kismayo{" "}
-                  <span className="text-gray-500 text-sm">from $140</span>
+                <div
+                  className="bg-blue-50 p-4 rounded-lg shadow cursor-pointer"
+                  onClick={() => handleDealClick("Mogadishu", "Kismayo")}
+                >
+                  📍 Mogadishu → Kismayo
+                  <span className="block text-gray-500 text-sm">from $140</span>
                 </div>
-                <div className="bg-blue-50 p-4 rounded-lg shadow">
-                  📍 Garowe → Mogadishu{" "}
-                  <span className="text-gray-500 text-sm">from $150</span>
+
+                <div
+                  className="bg-blue-50 p-4 rounded-lg shadow cursor-pointer"
+                  onClick={() => handleDealClick("Mogadishu", "Garowe")}
+                >
+                  📍 Mogadishu → Garowe
+                  <span className="block text-gray-500 text-sm">from $150</span>
                 </div>
-                <div className="bg-blue-50 p-4 rounded-lg shadow">
-                  📍 Mogadishu → Hargeysa{" "}
-                  <span className="text-gray-500 text-sm">from $170</span>
+
+                <div
+                  className="bg-blue-50 p-4 rounded-lg shadow cursor-pointer"
+                  onClick={() => handleDealClick("Mogadishu", "Hargeysa")}
+                >
+                  📍 Mogadishu → Hargeysa
+                  <span className="block text-gray-500 text-sm">from $170</span>
                 </div>
               </div>
             </div>
