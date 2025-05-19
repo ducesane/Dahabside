@@ -15,7 +15,7 @@ import { SignIn } from "./pages/SignIn";
 import { SignUp } from "./pages/SignUp";
 import { Header } from "./components/Header";
 import { Footer } from "./components/Footer";
-import { AuthProvider } from "./Context/AuthContext";
+import { AuthProvider } from "@/Context/AuthContext";
 import { ProtectedRoutes } from "./components/ProtectedRoutes";
 import { UnAuthenticatedRoutes } from "./components/UnAuthenticatedRoutes";
 
