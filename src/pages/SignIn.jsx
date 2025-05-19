@@ -45,6 +45,9 @@ export const SignIn = () => {
       <div className="w-full md:w-1/2 flex items-center justify-center p-8 m-4 bg-white">
         <div className="w-full max-w-md space-y-6  ">
           <h2 className="text-3xl font-bold text-gray-800 ">Sign in</h2>
+          {error && (
+            <h2 className="text-1xl font-bold text-red-800   mb-6">{error}</h2>
+          )}
           <form className="space-y-4" onSubmit={HandleSubmit}>
             <div>
               <label

@@ -32,6 +32,7 @@ export const SignUp = () => {
       console.log("cinwaanka waala sameyay");
     } catch (error) {
       setError("Signup failed: " + error.message);
+      alert(error);
     } finally {
       setisLoading(false);
     }
@@ -61,7 +62,11 @@ export const SignUp = () => {
         <h2 className="text-3xl font-bold text-gray-800 text-center mb-6">
           Create account
         </h2>
-
+        {error && (
+          <h2 className="text-1xl font-bold text-red-800 text-center mb-6">
+            {error}
+          </h2>
+        )}
         <form className="space-y-4" onSubmit={HandleSubmit}>
           {/* Full Name */}
           <div>
