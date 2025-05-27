@@ -10,42 +10,73 @@ export const Payment = () => {
 
   const [flight, setFlight] = useState(null);
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
+  const [phoneError, setPhoneError] = useState("");
   const navigate = useNavigate();
 
   useEffect(() => {
     const fetchFlight = async () => {
       const { data, error } = await supabase
         .from("flights")
-        .select(`
+        .select(
+          `
           *,
           airplanes ( name, image_url ),
           from_city:cities!flights_from_city_id_fkey ( name, code ),
           to_city:cities!flights_to_city_id_fkey ( name, code )
-        `)
+        `
+        )
         .eq("id", flightId)
         .single();
 
-      if (!error) setFlight(data);
+      if (error) {
+        console.error("❌ Error loading flight:", error.message);
+      } else {
+        setFlight(data);
+      }
     };
 
     if (flightId) fetchFlight();
   }, [flightId]);
 
   const handleChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+    const { name, value } = e.target;
+    setForm((prev) => ({ ...prev, [name]: value }));
+
+    if (name === "phone") {
+      const trimmed = value.trim();
+      const isPlus = trimmed.startsWith("+");
+
+      if (digitsOnly.length < 10 || digitsOnly.length > 15) {
+        setPhoneError("Phone must be between 10 and 15 digits long.");
+      } else {
+        setPhoneError("");
+      }
+    }
   };
 
   const handleConfirmPayment = async () => {
-    if (!form.name || !form.email || !form.phone) {
+    const { name, email, phone } = form;
+
+    if (!name || !email || !phone) {
       alert("Please fill all passenger details.");
+      return;
+    }
+
+    const trimmed = phone.trim();
+    const digitsOnly = trimmed.replace(/^\+|^00/, "");
+
+    if (digitsOnly.length < 10 || digitsOnly.length > 15) {
+      alert(
+        "Phone number must start with + or 00 and be 10 to 15 digits long."
+      );
       return;
     }
 
     const { error } = await supabase.from("bookings").insert({
       flight_id: flightId,
-      passenger_name: form.name,
-      email: form.email,
-      phone: form.phone,
+      passenger_name: name,
+      email,
+      phone,
       flight_day: selectedDay,
       flight_date: selectedDate,
       status: "confirmed",
@@ -54,12 +85,38 @@ export const Payment = () => {
     if (error) {
       console.error("❌ Booking error:", error.message);
       navigate("/payment-failed");
-    } else {
-      navigate("/passenger");
+      return;
     }
+
+    try {
+      await fetch(
+        "https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjYwNTZiMDYzNjA0Mzc1MjZjNTUzZDUxMzUi_pc",
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            name,
+            email,
+            phone,
+            flight_id: flightId,
+            flight_day: selectedDay,
+            flight_date: selectedDate,
+            flight_price: flight.price,
+            flight_fromcity: flight.from_city,
+            flight_toCity: flight.to_city,
+            flight_airplane: flight_airplane,
+          }),
+        }
+      );
+    } catch (err) {
+      console.error("❌ Webhook error:", err.message);
+    }
+
+    navigate("/passenger");
   };
 
-  if (!flight) return <p className="text-center mt-10">Loading payment info...</p>;
+  if (!flight)
+    return <p className="text-center mt-10">Loading payment info...</p>;
 
   return (
     <div className="max-w-3xl mx-auto mt-10 bg-white p-6 shadow rounded">
@@ -77,7 +134,12 @@ export const Payment = () => {
           🗓️ Date: <strong>{selectedDate}</strong>
           <br />
           🔁 Direction: {flight.direction}
-          {flight.duration && <><br />⏱️ Duration: {flight.duration} min</>}
+          {flight.duration && (
+            <>
+              <br />
+              ⏱️ Duration: {flight.duration} min
+            </>
+          )}
         </p>
         <p className="text-blue-600 font-bold text-lg mt-2">
           Total: ${flight.price}
@@ -101,14 +163,19 @@ export const Payment = () => {
           onChange={handleChange}
           className="w-full border p-2 rounded"
         />
-        <input
-          type="tel"
-          name="phone"
-          placeholder="Phone Number"
-          value={form.phone}
-          onChange={handleChange}
-          className="w-full border p-2 rounded"
-        />
+        <div>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="Phone Number (e.g. +25261XXXXXXX or 0025261XXXXXXX)"
+            value={form.phone}
+            onChange={handleChange}
+            className="w-full border p-2 rounded"
+          />
+          {phoneError && (
+            <p className="text-red-600 text-sm mt-1">{phoneError}</p>
+          )}
+        </div>
       </div>
 
       <button
