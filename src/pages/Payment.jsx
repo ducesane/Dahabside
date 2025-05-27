@@ -104,7 +104,7 @@ export const Payment = () => {
             flight_price: flight.price,
             flight_fromcity: flight.from_city,
             flight_toCity: flight.to_city,
-            flight_airplane: flight_airplane,
+            flight_airplane: flight.airplanes?.name,
           }),
         }
       );
