@@ -190,7 +190,7 @@ export const SearchResults = () => {
       ) : filteredFlights.length === 0 ? (
         <p className="text-gray-600">No matching flights found.</p>
       ) : (
-        <ul className="space-y-4">
+        <ul className="space-y-4 py-8">
           {filteredFlights.map((flight) => (
             <li
               key={flight.id}
