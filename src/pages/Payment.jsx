@@ -66,9 +66,7 @@ export const Payment = () => {
     const digitsOnly = trimmed.replace(/^\+|^00/, "");
 
     if (digitsOnly.length < 10 || digitsOnly.length > 15) {
-      alert(
-        "Phone number must start with + or 00 and be 10 to 15 digits long."
-      );
+      alert("Phone number must start   10 to 15 digits long.");
       return;
     }
 

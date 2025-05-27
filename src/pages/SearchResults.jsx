@@ -13,7 +13,7 @@ export const SearchResults = () => {
   const [filteredFlights, setFilteredFlights] = useState([]);
   const [priceFilter, setPriceFilter] = useState(0);
   const [dayFilter, setDayFilter] = useState("");
-  const [isloading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [noCitiesFound, setNoCitiesFound] = useState(false);
 
   useEffect(() => {
@@ -63,9 +63,9 @@ export const SearchResults = () => {
     const fetchFlights = async () => {
       if (!fromCity || !toCity) return;
 
-      // Step 1: Get the city IDs
       setIsLoading(true);
       setNoCitiesFound(false);
+
       const { data: cities } = await supabase
         .from("cities")
         .select("id, name")
@@ -86,16 +86,15 @@ export const SearchResults = () => {
         return;
       }
 
-      // Step 2: Fetch flights using city IDs
       const { data, error } = await supabase
         .from("flights")
         .select(
           `
-        *,
-        airplanes(name, image_url),
-        from_city:cities!flights_from_city_id_fkey(name, code),
-        to_city:cities!flights_to_city_id_fkey(name, code)
-      `
+          *,
+          airplanes(name, image_url),
+          from_city:cities!flights_from_city_id_fkey(name, code),
+          to_city:cities!flights_to_city_id_fkey(name, code)
+        `
         )
         .eq("from_city_id", fromCityObj.id)
         .eq("to_city_id", toCityObj.id);
@@ -105,6 +104,7 @@ export const SearchResults = () => {
         setFilteredFlights(data);
         setPriceFilter(Math.max(...data.map((f) => f.price || 0), 500));
       }
+
       setIsLoading(false);
     };
 
@@ -114,28 +114,26 @@ export const SearchResults = () => {
   useEffect(() => {
     let filtered = [...flights];
 
-    // 1. Filter by price
-    if ((priceFilter) => 0) {
+    if (priceFilter > 0) {
       filtered = filtered.filter((f) => f.price <= priceFilter);
     }
 
-    // 2. Filter by selected weekday
     if (dayFilter) {
       filtered = filtered.filter((f) => f.days.includes(dayFilter));
     }
 
-    // 3. Sort by the soonest actual upcoming flight day
-    filtered.sort((a, b) => {
-      const getSoonestTime = (days) => {
-        return Math.min(
-          ...days.map((day) => getNextDateForWeekday(day).getTime())
-        );
-      };
+    const cache = {};
+    const getCachedDate = (day) => {
+      if (!cache[day]) cache[day] = getNextDateForWeekday(day).getTime();
+      return cache[day];
+    };
 
-      return getSoonestTime(a.days) - getSoonestTime(b.days);
+    filtered.sort((a, b) => {
+      const aNext = Math.min(...a.days.map(getCachedDate));
+      const bNext = Math.min(...b.days.map(getCachedDate));
+      return aNext - bNext;
     });
 
-    // 4. Update filtered flights state
     setFilteredFlights(filtered);
   }, [priceFilter, dayFilter, flights]);
 
@@ -181,7 +179,9 @@ export const SearchResults = () => {
           </select>
         </div>
       </div>
-      {isloading ? (
+
+      {/* Results */}
+      {isLoading ? (
         <p className="text-gray-600">Searching flights...</p>
       ) : noCitiesFound ? (
         <p className="text-red-600 font-semibold">
@@ -190,7 +190,7 @@ export const SearchResults = () => {
       ) : filteredFlights.length === 0 ? (
         <p className="text-gray-600">No matching flights found.</p>
       ) : (
-        <ul className="space-y-4 py-8">
+        <ul className="space-y-4 pb-8">
           {filteredFlights.map((flight) => (
             <li
               key={flight.id}
@@ -220,24 +220,29 @@ export const SearchResults = () => {
                 </p>
 
                 <div className="flex flex-wrap gap-2 mt-3">
-                  {flight.days.map((day) => {
-                    const date = getNextDateForWeekday(day);
-                    const label = date.toLocaleDateString("en-US", {
-                      weekday: "short",
-                      month: "short",
-                      day: "numeric",
-                    });
+                  {[...flight.days]
+                    .sort(
+                      (a, b) =>
+                        getNextDateForWeekday(a) - getNextDateForWeekday(b)
+                    )
+                    .map((day) => {
+                      const date = getNextDateForWeekday(day);
+                      const label = date.toLocaleDateString("en-US", {
+                        weekday: "short",
+                        month: "short",
+                        day: "numeric",
+                      });
 
-                    return (
-                      <button
-                        key={day}
-                        onClick={() => handleBook(flight.id, day, date)}
-                        className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
-                      >
-                        {day} – {label}
-                      </button>
-                    );
-                  })}
+                      return (
+                        <button
+                          key={day}
+                          onClick={() => handleBook(flight.id, day, date)}
+                          className="bg-green-600 hover:bg-green-700 text-white px-3 py-1 rounded text-sm"
+                        >
+                          {day} – {label}
+                        </button>
+                      );
+                    })}
                 </div>
               </div>
             </li>

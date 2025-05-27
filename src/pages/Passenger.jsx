@@ -56,7 +56,7 @@ export const Passenger = () => {
         <p className="text-blue-600 font-bold mt-2">💵 Paid: ${flight.price}</p>
       </div>
 
-      <p className="mt-4 text-green-600 font-semibold">Your ticket will be sent shortly via email or SMS.</p>
+      <p className="mt-4 text-green-600 font-semibold">Your ticket will be sent shortly vai  whatsapp.</p>
     </div>
   );
 };
