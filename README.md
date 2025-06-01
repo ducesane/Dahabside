@@ -1,12 +1,57 @@
-# React + Vite
+ # ✈️ Dahabside – Flight Booking Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Dahabside** is a modern web-based flight booking platform built with **React.js**. It allows users to search flights between Somali cities, view flight details, and complete bookings with a seamless payment experience.
 
-Currently, two official plugins are available:
+🌐 Live Demo: [dahabside.vercel.app](https://dahabside.vercel.app)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- 🔍 **Search Flights:** Quickly search flights by selecting departure and destination cities.
+  - [Example Search Result](https://dahabside.vercel.app/searchresults?from=Mogadishu&to=Garowe)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- 📄 **Flight Information Page:** View details for a selected flight including airline, price, and availability.
+  - [Example Booking Page](https://dahabside.vercel.app/booking?flight=890ac637-3692-42d7-b8b7-b0ad6ceb26c8&day=Monday&date=2025-06-01)
+
+- 💳 **Payment and Booking Confirmation:** Securely complete the booking and see a payment summary.
+  - [Example Payment Page](https://dahabside.vercel.app/payment?flight=890ac637-3692-42d7-b8b7-b0ad6ceb26c8&day=Monday&date=2025-06-01)
+
+- 📱 **Responsive Design:** Fully mobile-friendly and optimized for all devices.
+- 🧾 **Admin & Booking Management**  
+
+## 🛠️ Tech Stack
+
+- **Frontend:** React.js, Tailwind CSS
+- **Deployment:** Vercel
+- **Backend:** Supabase (for authentication & database)
+
+## 📦 Getting Started
+
+### Prerequisites
+
+- Node.js (v18+)
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ducesane/Dahabside.git
+   cd Dahabside
+2. Install dependencies:
+
+   npm install
+  # or
+  yarn install
+3. Start the development server
+      npm run dev
+    # or
+    yarn dev
+4. Open http://localhost:3000 to view in your browser.
+
+Environment Variables
+To connect to Supabase and any payment system, create a .env.local file and add:
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+
+
+
